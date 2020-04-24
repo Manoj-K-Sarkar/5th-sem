@@ -1,0 +1,5 @@
+a=10;
+while(a<11)
+begin
+b = a+70;
+end

@@ -1,0 +1,21 @@
+%{	
+	#include<stdio.h>
+	int count = 0;
+%}
+
+letter	[a-z A-Z]
+digit 	[0-9]
+
+%%
+{letter}({letter}|{digit})*	printf("%s",yytext);
+\n  printf("\t line no: %d\n",++count);
+
+%%
+
+int yywrap(){ return 1; }
+
+main(){
+	yylex();
+	yywrap();
+//	printf("%d ",count);
+}
